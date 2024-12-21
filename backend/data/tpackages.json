@@ -1,0 +1,134 @@
+[
+    {
+      "name": "Mountain Explorer Adventure",
+      "price": 299,
+      "description": "A thrilling hiking trip through scenic mountain trails.",
+      "ratings": 4.8,
+      "images": [
+        {
+          "public_id": "image1_mountain",
+          "url": "https://example.com/images/mountain1.jpg"
+        },
+        {
+          "public_id": "image2_mountain",
+          "url": "https://example.com/images/mountain2.jpg"
+        }
+      ],
+      "category": "Hiking",
+      "guide": "John Smith",
+      "numOfReviews": 3,
+      "reviews": [
+        {
+          "name": "Alice Brown",
+          "rating": 5,
+          "comment": "Absolutely loved the views and the guide was amazing!"
+        },
+        {
+          "name": "Tom Clark",
+          "rating": 4,
+          "comment": "A great experience, though a bit challenging for beginners."
+        },
+        {
+          "name": "Emma Johnson",
+          "rating": 5,
+          "comment": "Best hiking experience of my life!"
+        }
+      ]
+    },
+    {
+      "name": "River Rowing Adventure",
+      "price": 199,
+      "description": "An exciting rowing trip through serene rivers and lakes.",
+      "ratings": 4.5,
+      "images": [
+        {
+          "public_id": "image1_rowing",
+          "url": "https://example.com/images/rowing1.jpg"
+        }
+      ],
+      "category": "Rowing",
+      "guide": "Sarah Green",
+      "numOfReviews": 2,
+      "reviews": [
+        {
+          "name": "James Williams",
+          "rating": 4,
+          "comment": "Very peaceful and refreshing!"
+        },
+        {
+          "name": "Sophia Taylor",
+          "rating": 5,
+          "comment": "The guide was very professional, and the scenery was breathtaking."
+        }
+      ]
+    },
+    {
+      "name": "Forest Camping Retreat",
+      "price": 249,
+      "description": "A relaxing camping experience surrounded by lush forests.",
+      "ratings": 4.7,
+      "images": [
+        {
+          "public_id": "image1_camping",
+          "url": "https://example.com/images/camping1.jpg"
+        },
+        {
+          "public_id": "image2_camping",
+          "url": "https://example.com/images/camping2.jpg"
+        }
+      ],
+      "category": "Camping",
+      "guide": "Michael Brown",
+      "numOfReviews": 4,
+      "reviews": [
+        {
+          "name": "Oliver Wilson",
+          "rating": 5,
+          "comment": "A perfect escape into nature!"
+        },
+        {
+          "name": "Emily Davis",
+          "rating": 4,
+          "comment": "Good camping experience, but bring extra supplies."
+        },
+        {
+          "name": "Noah White",
+          "rating": 5,
+          "comment": "The campfire nights were unforgettable!"
+        },
+        {
+          "name": "Isabella Moore",
+          "rating": 4,
+          "comment": "Loved the peaceful atmosphere and the guide's stories."
+        }
+      ]
+    },
+    {
+      "name": "Lakeside Family Camping",
+      "price": 179,
+      "description": "A family-friendly camping experience by the lake.",
+      "ratings": 4.6,
+      "images": [
+        {
+          "public_id": "image1_lakeside",
+          "url": "https://example.com/images/lakeside1.jpg"
+        }
+      ],
+      "category": "Camping",
+      "guide": "Anna Lee",
+      "numOfReviews": 2,
+      "reviews": [
+        {
+          "name": "Mason Walker",
+          "rating": 5,
+          "comment": "Our kids had so much fun! Perfect for families."
+        },
+        {
+          "name": "Mia Adams",
+          "rating": 4,
+          "comment": "Relaxing and peaceful, but the tents were a bit small."
+        }
+      ]
+    }
+  ]
+  

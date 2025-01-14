@@ -29,7 +29,7 @@ exports.registerUser = catchAsyncErrors(async(req,res,next)=>{
 // Login User
 
 exports.loginUser = catchAsyncErrors(async(req,res,next)=>{
-    const {email,password} = req.body;
+    const { email,password } = req.body;
 
     // check email and passsword entered by user
     if(!email || !password){
@@ -37,17 +37,17 @@ exports.loginUser = catchAsyncErrors(async(req,res,next)=>{
     }
 
     // finding user in db
-    const user = await User.findOne({email}).select('+password');
+    const user = await User.findOne({ email }).select('+password');
 
-    if(!user){
-        return next(new ErrorHandler('Invalid email or password',401))
+    if (!user) {
+        return next(new ErrorHandler('Invalid email or password', 401));
     }
      
     // check password is correct or not
     const isPasswordMatched = await user.comparePassword(password);
 
     if(!isPasswordMatched) {
-        return next(new ErrorHandler('Invalid email or password',401))
+        return next(new ErrorHandler('Invalid email or password', 401))
 
     }
     sendToken(user,200,res)
@@ -83,7 +83,7 @@ exports.forgotPassword = catchAsyncErrors(async (req,res,next)=>{
 
         res.status(200).json({
             success:true,
-            message: `Email sent to: ${user.email}`
+            message: `Email sent to: ${ user.email }`
         })
 
     } catch(error){
@@ -106,15 +106,15 @@ exports.resetPassword = catchAsyncErrors(async (req,res,next)=>{
 
     const user = await User.findOne({ 
         resetPasswordToken,
-        resetPasswordExpire: {$gt: Date.now()} 
+        resetPasswordExpire: { $gt: Date.now() } 
     });
 
     if (!user){
-        return next(new ErrorHandler('password reset token is invalid or has benn expired',400));
+        return next(new ErrorHandler('password reset token is invalid or has benn expired', 400));
     }
 
     if (req.body.password !== req.body.confirmPassword){
-        return next(new ErrorHandler('password does not match',400));
+        return next(new ErrorHandler('password does not match', 400));
 
     }
 
@@ -216,10 +216,11 @@ exports.allUsers = catchAsyncErrors(async (req,res,next) => {
 
 // Get user details    /api/v1/admin/user/:id
 exports.getUserDetails = catchAsyncErrors(async (req,res,next) => {
+
     const user = await User.findById(req.params.id);
 
     if(!user){
-        return next(new ErrorHandler(`User does not found with id: ${req.params.id}`))
+        return next(new ErrorHandler(`User does not found with id: ${req.params.id}`));
     }
 
     res.status(200).json({
@@ -255,7 +256,7 @@ exports.deleteUser = catchAsyncErrors(async (req,res,next) => {
     const user = await User.findById(req.params.id);
 
     if(!user){
-        return next(new ErrorHandler(`User does not found with id: ${req.params.id}`))
+        return next(new ErrorHandler(`User does not found with id: ${req.params.id}`,400))
     }
     
     // Remove profile picture from cloudinary

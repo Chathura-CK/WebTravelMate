@@ -1,6 +1,6 @@
 const ErrorHandler = require('../util/errorHandler');
 
-module.exports= (err,req,res,next) => {
+module.exports = (err,req,res,next) => {
     err.statusCode = err.statusCode || 500;
     
     if(process.env.NODE_ENV === 'DEVELOPMENT'){
@@ -19,7 +19,7 @@ module.exports= (err,req,res,next) => {
         error.message = err.message;
 
         // wrong Mongoose object error message
-        if(error.name == 'castError'){
+        if(error.name === 'CastError'){
             const message = `Resource not found. Invalid: ${error.path}`;
             error = new ErrorHandler(message, 400);
         }

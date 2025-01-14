@@ -1,0 +1,45 @@
+.features {
+    padding: 40px 20px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.features.light {
+    background-color: #f9f9f9; /* Light background */
+    color: #333;              /* Dark text for readability */
+}
+
+.features.dark {
+    background-color: #333;   /* Dark background */
+    color: #f9f9f9;           /* Light text for readability */
+}
+
+.features h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.feature-item {
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.feature-item.light {
+    background: #ffffff; /* White background for light mode */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.feature-item.dark {
+    background: #444444; /* Darker background for dark mode */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Subtle light shadow */
+}

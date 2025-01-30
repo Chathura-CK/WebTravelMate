@@ -1,7 +1,7 @@
 {
-  "name": "webtravelmate",
+  "name": "hikersclub-web",
   "version": "1.0.0",
-  "description": "Tourist Guidance System",
+  "description": "Hiking club web site",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js ",

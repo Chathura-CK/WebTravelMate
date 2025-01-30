@@ -44,6 +44,7 @@ body.dark {
 .loader {
   width: 50px;
   padding: 8px;
+  margin: center;
   aspect-ratio: 1;
   border-radius: 50%;
   background: #25b09b;

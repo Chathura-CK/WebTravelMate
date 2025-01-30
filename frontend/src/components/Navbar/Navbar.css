@@ -85,7 +85,7 @@ ul li a {
   font-weight: bold;
   text-transform: uppercase;
   color: white;
-  background: linear-gradient(45deg, #6a1b9a, #8e24aa); /* Gradient for modern look */
+  background: linear-gradient(45deg, #2e94ba,#61cccb); /* Gradient for modern look */
   border: none;
   border-radius: 25px;
   text-decoration: none;
@@ -95,7 +95,8 @@ ul li a {
 
 .buttn:hover {
   transform: translateY(-3px); /* Subtle hover animation */
-  background: linear-gradient(45deg, #4a148c, #6a1b9a); /* Slightly darker gradient on hover */
+  color: white;
+  background: linear-gradient(45deg, #185a7f, #2e94ba); /* Slightly darker gradient on hover */
 }
 
 

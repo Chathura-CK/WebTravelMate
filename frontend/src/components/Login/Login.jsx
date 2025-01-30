@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { useAlert } from 'react-alert';
 import './Login.css';
 import Loader from '../../layout/Loader';
 import email_icon from '../../assets/email_icon.png';
@@ -9,11 +8,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { login, clearErrors } from '../../actions/authActions';
 
 const Login = () => {
-  // const alert = useAlert();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: '', password: '' });
+  const [localError, setLocalError] = useState(null); // State for local error
   const dispatch = useDispatch();
-  const { error, isAuthenticated, loading } = useSelector( state => state.auth);
+  const { error, isAuthenticated, loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -21,10 +20,10 @@ const Login = () => {
     }
 
     if (error) {
-      // alert.error(error);
+      setLocalError(error); // Set the local error state
       dispatch(clearErrors());
     }
-  }, [dispatch, error, isAuthenticated, alert, navigate]);
+  }, [dispatch, error, isAuthenticated, navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,17 +31,25 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLocalError(null); // Clear any previous local error before submitting
     dispatch(login(formData.email, formData.password));
   };
 
   return (
     <Fragment>
-      {loading ? <Loader />
-       : (
+      {loading ? (
+        <Loader />
+      ) : (
         <div className="login-body">
           <div className="login-container">
             <form className="form" onSubmit={handleSubmit}>
               <h1>Login</h1>
+
+              {localError && (
+                <div className="error-alert">
+                  <p>{localError}</p>
+                </div>
+              )}
 
               <div className="input-group">
                 <img src={email_icon} alt="Email Icon" className="icon" />

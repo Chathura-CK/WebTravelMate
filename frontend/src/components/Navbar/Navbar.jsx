@@ -62,7 +62,7 @@ const Navbar = ({ theme, setTheme }) => {
         >
           <div className="offcanvas-header">
             <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-              TravelMate
+              RUS Hikers
             </h5>
             <button
               type="button"
@@ -72,10 +72,10 @@ const Navbar = ({ theme, setTheme }) => {
             ></button>
           </div>
           <div className="offcanvas-body">
-            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
               <li className="nav-item">
-                <Link className="nav-link" to="/explore">
-                  Explore
+                <Link className="nav-link" to="/events">
+                  Events
                 </Link>
               </li>
               <li className="nav-item">
@@ -84,15 +84,15 @@ const Navbar = ({ theme, setTheme }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/services">
-                  Services
+                <Link className="nav-link" to="/e-magazine">
+                  E-Magazine
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/contact">
                   Contact
                 </Link>
-              </li>
+              </li> */}
 
               <li>
                 {/* Profile or Sign-In Button */}

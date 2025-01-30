@@ -6,6 +6,8 @@ import AlertTemplate from 'react-alert-template-basic';
 import App from './App';
 import store from './store';
 import { Provider } from 'react-redux';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 // Alert options
 const options = {

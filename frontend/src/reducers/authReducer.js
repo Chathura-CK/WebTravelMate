@@ -12,7 +12,13 @@ import {
 //   loading: false,       // Indicate whether the state is loading (e.g., during login)
 // };
 
-const authReducer = (state = { user: { } }, action) => {
+const initialState = {
+  user: null,
+  loading: false,
+  error: null
+};
+
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
     case REGISTER_USER_REQUEST:
@@ -73,18 +79,8 @@ const authReducer = (state = { user: { } }, action) => {
     case CLEAR_ERRORS:
       return {
         ...state,
-        error: null,
+        error: null
       };
-
-    
-    
-    case 'LOGOUT':
-      return {
-        ...state,
-        isAuthenticated: false,
-        user: null,
-      };
-
 
     default:
       return state;

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import Explore from './pages/Explore';
+import Events from './pages/Events';
+import EMagazine from './pages/E-Magazine';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import LandingPage from './pages/LandingPage';
@@ -36,13 +37,14 @@ const App = () => {
           <Navbar theme ={ theme } setTheme={ setTheme }/>
           <Routes>
             <Route path="/" element={<LandingPage theme={theme} />} />
-            <Route path="/explore" element={<Explore />} />
+            <Route path="/events" element={<Events theme={theme} />} />
+            <Route path="/e-magazine" element={<EMagazine theme={theme} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/me" element={<ProtectedRoute><Profile /></ProtectedRoute>} exact />
             <Route path="/about" element={<About />} />
           </Routes>
-          <Footer />
+          <Footer theme ={ theme } />
         </div>
       
     </Router>

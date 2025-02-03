@@ -23,7 +23,7 @@ const Signup = () => {
       setLoading(false);
 
       // Display success message and navigate to homepage
-      alert('Registration successful! Redirecting to loginpage...');
+      alert('Registration successful! Redirecting to login page...');
       navigate('/login'); // Redirect to homepage
     } catch (err) {
       setLoading(false);

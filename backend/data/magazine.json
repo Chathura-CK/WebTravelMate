@@ -1,0 +1,57 @@
+[
+    {
+      "_id": "64f8a1b2e4b0a1a2b3c4d5e1",
+      "title": "Travel Wonders",
+      "image": "https://via.placeholder.com/300",
+      "description": "Explore the best travel destinations around the world.",
+      "status": "approved",
+      "submittedBy": "64f8a1b2e4b0a1a2b3c4d5f1",
+      "approvedBy": "64f8a1b2e4b0a1a2b3c4d5f2",
+      "createdAt": "2023-09-05T10:00:00.000Z",
+      "updatedAt": "2023-09-05T10:30:00.000Z"
+    },
+    {
+      "_id": "64f8a1b2e4b0a1a2b3c4d5e2",
+      "title": "Tech Insights",
+      "image": "https://via.placeholder.com/300",
+      "description": "Stay updated with the latest technology trends.",
+      "status": "pending",
+      "submittedBy": "64f8a1b2e4b0a1a2b3c4d5f3",
+      "approvedBy": null,
+      "createdAt": "2023-09-05T11:00:00.000Z",
+      "updatedAt": "2023-09-05T11:00:00.000Z"
+    },
+    {
+      "_id": "64f8a1b2e4b0a1a2b3c4d5e3",
+      "title": "Health & Wellness",
+      "image": "https://via.placeholder.com/300",
+      "description": "Tips for a healthy and balanced lifestyle.",
+      "status": "approved",
+      "submittedBy": "64f8a1b2e4b0a1a2b3c4d5f4",
+      "approvedBy": "64f8a1b2e4b0a1a2b3c4d5f2",
+      "createdAt": "2023-09-05T12:00:00.000Z",
+      "updatedAt": "2023-09-05T12:30:00.000Z"
+    },
+    {
+      "_id": "64f8a1b2e4b0a1a2b3c4d5e4",
+      "title": "Culinary Delights",
+      "image": "https://via.placeholder.com/300",
+      "description": "Discover the art of cooking and delicious recipes.",
+      "status": "pending",
+      "submittedBy": "64f8a1b2e4b0a1a2b3c4d5f5",
+      "approvedBy": null,
+      "createdAt": "2023-09-05T13:00:00.000Z",
+      "updatedAt": "2023-09-05T13:00:00.000Z"
+    },
+    {
+      "_id": "64f8a1b2e4b0a1a2b3c4d5e5",
+      "title": "Fitness Goals",
+      "image": "https://via.placeholder.com/300",
+      "description": "Achieve your fitness goals with expert advice.",
+      "status": "approved",
+      "submittedBy": "64f8a1b2e4b0a1a2b3c4d5f6",
+      "approvedBy": "64f8a1b2e4b0a1a2b3c4d5f2",
+      "createdAt": "2023-09-05T14:00:00.000Z",
+      "updatedAt": "2023-09-05T14:30:00.000Z"
+    }
+  ]

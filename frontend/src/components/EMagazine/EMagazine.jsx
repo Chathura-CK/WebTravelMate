@@ -1,51 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { motion } from "framer-motion";  
 import "./EMagazine.css";
+import axios from 'axios';
 
-const magazineData = [
-  {
-    id: 1,
-    title: "Travel Wonders",
-    image: "https://via.placeholder.com/300",
-    description: "Explore the best travel destinations around the world.",
-  },
-  {
-    id: 2,
-    title: "Tech Insights",
-    image: "https://via.placeholder.com/300",
-    description: "Stay updated with the latest technology trends.",
-  },
-  {
-    id: 3,
-    title: "Health & Wellness",
-    image: "https://via.placeholder.com/300",
-    description: "Tips for a healthy and balanced lifestyle.",
-  },
-  {
-    id: 4,
-    title: "Travel Wonders",
-    image: "https://via.placeholder.com/300",
-    description: "Explore the best travel destinations around the world.",
-  },
-  {
-    id: 5,
-    title: "Tech Insights",
-    image: "https://via.placeholder.com/300",
-    description: "Stay updated with the latest technology trends.",
-  },
-  {
-    id: 6,
-    title: "Health & Wellness",
-    image: "https://via.placeholder.com/300",
-    description: "Tips for a healthy and balanced lifestyle.",
-  }
-];
-
-export default function EMagazine( {theme} ) {
+const EMagazine = ({ theme }) => {
   const [selectedMagazine, setSelectedMagazine] = useState(null);
+  const [magazineData, setMagazineData] = useState([]);
+
+  useEffect(() => {
+    const fetchApprovedPosts = async () => {
+      const response = await axios.get('/api/v1/magazine/approved');
+      setMagazineData(response.data);
+    };
+    fetchApprovedPosts();
+  }, []);
 
   return (
     <div className={`container ${theme}`}>
@@ -80,4 +51,6 @@ export default function EMagazine( {theme} ) {
       )}
     </div>
   );
-}
+};
+
+export default EMagazine;

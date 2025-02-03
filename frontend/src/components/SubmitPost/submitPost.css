@@ -1,0 +1,87 @@
+/* Form container */
+.submit-post-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .submit-post-form:hover {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Form inputs and textarea */
+  .submit-post-form input,
+  .submit-post-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .submit-post-form input:focus,
+  .submit-post-form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+  
+  .submit-post-form textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  /* Submit button */
+  .submit-post-form button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .submit-post-form button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .submit-post-form button:active {
+    transform: translateY(0);
+  }
+  
+  /* Placeholder styling */
+  .submit-post-form input::placeholder,
+  .submit-post-form textarea::placeholder {
+    color: #999;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .submit-post-form {
+      padding: 1.5rem;
+    }
+  
+    .submit-post-form input,
+    .submit-post-form textarea {
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .submit-post-form button {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }

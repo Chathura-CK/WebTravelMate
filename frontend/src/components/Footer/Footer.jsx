@@ -1,5 +1,6 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = ({ theme }) => {
@@ -55,7 +56,7 @@ const Footer = ({ theme }) => {
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p><a href='#!' className='text-reset'>Pricing</a></p>
               <p><a href='#!' className='text-reset'>Settings</a></p>
-              <p><a href='#!' className='text-reset'>Orders</a></p>
+              <p><a className='text-reset'>  <Link to="/submitPost">Sign Up here</Link> </a></p>
               <p><a href='#!' className='text-reset'>Help</a></p>
             </MDBCol>
 

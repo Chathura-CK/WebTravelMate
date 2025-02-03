@@ -1,22 +1,22 @@
-const Package = require('../models/package');
+const Event = require('../models/events');
 const dotenv = require('dotenv');
 const connectDatabase = require('../config/database');
 
-const packages = require('../data/tpackages');
+const events = require('../data/events');
 
 
 dotenv.config({path:'backend/config/config.env'})
 
 connectDatabase();
 
-const seedPackages = async() =>{
+const seedEvents = async() =>{
     try{
 
-        await Package.deleteMany();
-        console.log('Packages are deleted');
+        await Event.deleteMany();
+        console.log('Events are deleted');
         
-        await Package.insertMany(packages);
-        console.log('Packages are inserted');
+        await Event.insertMany(events);
+        console.log('Events are inserted');
 
         process.exit();
 
@@ -27,4 +27,4 @@ const seedPackages = async() =>{
 
 }}
 
-seedPackages();
+seedEvents();

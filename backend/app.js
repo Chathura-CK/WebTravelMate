@@ -24,7 +24,7 @@ const admin = require('./routes/admin');
 const magazine = require('./routes/magazine');
 
 app.use('/api/v1', auth);
-app.use('/api/v1', events);
+app.use('/api/v1/events', events);
 app.use('/api/v1/admin', admin);
 app.use('/api/v1/magazine', magazine);
 

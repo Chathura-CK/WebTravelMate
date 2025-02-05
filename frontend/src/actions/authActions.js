@@ -12,23 +12,16 @@ export const register = (userData) => async (dispatch) => {
     try {
         dispatch({ type: REGISTER_USER_REQUEST });
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
-
-        const { data } = await axios.post('/api/v1/register', userData, config);
-
-        dispatch({
-            type: REGISTER_USER_SUCCESS,
-            payload: data.user
+        const { data } = await axios.post('http://localhost:4000/api/v1/register', userData, {
+            headers: { 'Content-Type': 'application/json' }
         });
+
+        dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
 
     } catch (error) {
         dispatch({
             type: REGISTER_USER_FAILURE,
-            payload: error.response && error.response.data.message ? error.response.data.message : error.message
+            payload: error.response?.data?.message || 'Registration failed'
         });
     }
 };
@@ -38,29 +31,21 @@ export const login = (email, password) => async (dispatch) => {
     try {
         dispatch({ type: LOGIN_REQUEST });
 
-        const response = await axios({
-            method: 'post',
-            baseURL: 'http://localhost:4000/api/v1',
-            url: 'login',
-            data: { email, password },
-            headers: { 'Content-Type': 'application/json' },
-            withCredentials: true, // Include cookies in requests
-        });
+        const { data } = await axios.post('http://localhost:4000/api/v1/login', 
+            { email, password }, 
+            { headers: { 'Content-Type': 'application/json' }, withCredentials: true }
+        );
 
-        if (response && response.data) {
-            dispatch({
-                type: LOGIN_SUCCESS,
-                payload: response.data.user
-            });
+        if (data) {
+            localStorage.setItem('token', data.token);
+            dispatch({ type: LOGIN_SUCCESS, payload: data.user });
         } else {
             throw new Error('Failed to login');
         }
-
     } catch (error) {
-        const errorMessage = error.response && error.response.data.message ? error.response.data.message : error.message;
         dispatch({
             type: LOGIN_FAILURE,
-            payload: errorMessage
+            payload: error.response?.data?.message || 'Login failed'
         });
     }
 };
@@ -70,61 +55,36 @@ export const loadUser = () => async (dispatch) => {
     try {
         dispatch({ type: LOAD_USER_REQUEST });
 
-        const response = await axios({
-            method: 'get',
-            baseURL: 'http://localhost:4000/api/v1',
-            url: 'me',
+        const token = localStorage.getItem('token');
+        if (!token) throw new Error("No token found, please log in.");
+
+        const { data } = await axios.get('http://localhost:4000/api/v1/me', {
+            headers: { Authorization: `Bearer ${token}` },
             withCredentials: true
         });
 
-        if (response && response.data) {
-            dispatch({
-                type: LOAD_USER_SUCCESS,
-                payload: response.data.user
-            });
-        } else {
-            throw new Error('Failed to load user data');
-        }
+        dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
 
     } catch (error) {
-        const errorMessage = error.response && error.response.data.message ? error.response.data.message : error.message;
         dispatch({
             type: LOAD_USER_FAILURE,
-            payload: errorMessage
+            payload: error.response?.data?.message || 'Failed to load user'
         });
     }
 };
+
 // Logout user
 export const logout = () => async (dispatch) => {
-  try {
-    
-
-    await axios({
-      method: 'get',
-      baseURL: 'http://localhost:4000/api/v1',
-      url: 'logout',
-      
-      
-    });
-
-    dispatch({
-      type: LOGOUT_SUCCESS,
-     
-    });
-    
-  } catch (error) {
-    dispatch({
-      type: LOGOUT_FAILURE,
-      payload: error.response.data.message || 'Failed to load user',
-    });
-  }
+    try {
+        await axios.get('http://localhost:4000/api/v1/logout', { withCredentials: true });
+        localStorage.removeItem('token');
+        dispatch({ type: LOGOUT_SUCCESS });
+    } catch (error) {
+        dispatch({ type: LOGOUT_FAILURE, payload: 'Logout failed' });
+    }
 };
 
 // Clear errors
-export const clearErrors = () => async (dispatch) => {
-    dispatch({
-        type: CLEAR_ERRORS,
-    })
-}
-  
-  
+export const clearErrors = () => (dispatch) => {
+    dispatch({ type: CLEAR_ERRORS });
+};

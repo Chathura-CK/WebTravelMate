@@ -31,7 +31,7 @@ exports.registerUser = catchAsyncErrors(async(req,res,next)=>{
 exports.loginUser = catchAsyncErrors(async(req,res,next)=>{
     const { email,password } = req.body;
 
-    // check email and passsword entered by user
+    // check email and password entered by user
     if(!email || !password){
         return next(new ErrorHandler('Please enter email and password',400))
     }
@@ -141,7 +141,7 @@ exports.getUserProfile = catchAsyncErrors(async(req,res,next)=>{
         user
     })
     
-})
+});
 
 //update / change password  /ap/v1/password/update
 exports.updatePassword = catchAsyncErrors(async(req,res,next)=>{

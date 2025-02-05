@@ -3,7 +3,7 @@ export const setUsers = (users) => ({
     payload: users,
   });
   
-  export const updateSettings = (settings) => ({
+export const updateSettings = (settings) => ({
     type: 'UPDATE_SETTINGS',
     payload: settings,
   });

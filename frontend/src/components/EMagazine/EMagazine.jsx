@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
@@ -9,14 +9,18 @@ import axios from 'axios';
 const EMagazine = ({ theme }) => {
   const [selectedMagazine, setSelectedMagazine] = useState(null);
   const [magazineData, setMagazineData] = useState([]);
+  const detailsRef = useRef(null);
 
   useEffect(() => {
     const fetchApprovedPosts = async () => {
-      const response = await axios.get('/api/v1/magazine/approved');
+      const response = await axios.get('http://localhost:4000/api/v1/magazine/approved');
       setMagazineData(response.data);
     };
     fetchApprovedPosts();
-  }, []);
+    if (selectedMagazine && detailsRef.current) {
+      detailsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [selectedMagazine]);
 
   return (
     <div className={`container ${theme}`}>
@@ -40,7 +44,7 @@ const EMagazine = ({ theme }) => {
         ))}
       </div>
       {selectedMagazine && (
-        <div className="details">
+        <div className="details" ref={detailsRef}>
           <h2 className="details-title">{selectedMagazine.title}</h2>
           <img src={selectedMagazine.image} alt={selectedMagazine.title} className="details-image" />
           <p>{selectedMagazine.description}</p>

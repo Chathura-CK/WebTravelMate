@@ -12,18 +12,22 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [localError, setLocalError] = useState(null); // State for local error
   const dispatch = useDispatch();
-  const { error, isAuthenticated, loading } = useSelector((state) => state.auth);
+  const { error, isAuthenticated, loading, user} = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/'); // Redirect to home page
+    if (isAuthenticated && user) {
+      if (user.role === 'admin') {
+        navigate('/admin'); 
+      } else {
+        navigate('/'); 
+      }
     }
 
     if (error) {
       setLocalError(error); // Set the local error state
       dispatch(clearErrors());
     }
-  }, [dispatch, error, isAuthenticated, navigate]);
+  }, [dispatch, error, isAuthenticated, user, navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

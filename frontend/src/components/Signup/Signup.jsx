@@ -19,7 +19,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:4000/api/v1/register', formData);
+      await axios.post('http://localhost:4000/api/v1/register', formData);
       setLoading(false);
 
       // Display success message and navigate to homepage

@@ -9,12 +9,13 @@ import toggle_light from '../../assets/night_icon.png';
 import toggle_dark from '../../assets/day_icon.png';
 // import defaultProfilePic from '../../assets/sample_profile.jpeg';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../actions/authActions';
 
 const Navbar = ({ theme, setTheme }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to control dropdown visibility
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Hook for navigation
   const { user, loading } = useSelector((state) => state.auth); // Subscribe to auth state
  
 
@@ -24,6 +25,7 @@ const Navbar = ({ theme, setTheme }) => {
 
   const handleLogout = () => {
     dispatch(logout());
+    navigate('/');
   };
 
   const toggleDropdown = () => {
